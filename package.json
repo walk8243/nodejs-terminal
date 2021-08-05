@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-terminal",
+  "version": "1.0.0",
+  "description": "Node.jsを使ってターミナル表示で遊ぶ",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walk8243/nodejs-terminal.git"
+  },
+  "keywords": [],
+  "author": "walk8243",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/walk8243/nodejs-terminal/issues"
+  },
+  "homepage": "https://github.com/walk8243/nodejs-terminal#readme",
+  "dependencies": {
+    "terminal-kit": "^2.1.6",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/terminal-kit": "^1.28.4"
+  }
+}
