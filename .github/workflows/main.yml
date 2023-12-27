@@ -18,3 +18,23 @@ jobs:
         run: echo ${{ inputs.version }}
       - name: print sha256
         run: echo ${{ inputs.sha256 }}
+
+  create-pullrequest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup git user
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+      - uses: actions/checkout@v4
+      - run: git switch -c test
+      - name: before file
+        run: cat src/index.ts
+      - run: sed -i 's/green/yellow/g' src/index.ts
+      - name: after file
+        run: cat src/index.ts
+      - run: |
+          git add .
+          git commit --message 'file changed'
+          git push origin test
+      - run: gh pr create --title "[Test] Create Pull Request From GitHub Actions" --body "GitHub Actions created."
