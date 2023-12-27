@@ -2,7 +2,7 @@ import { terminal } from 'terminal-kit';
 
 terminal.scrollUp(terminal.height + 1);
 terminal.clear();
-terminal("My name is ").green("walk8243");
+terminal("My name is ").yellow("walk8243");
 
 setTimeout(() => {
 	terminal.clear();
