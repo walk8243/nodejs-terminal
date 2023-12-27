@@ -1,6 +1,8 @@
 name: Created Pull Request
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   brew-update:
