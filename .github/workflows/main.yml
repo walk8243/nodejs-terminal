@@ -37,6 +37,13 @@ jobs:
           git add .
           git commit --message 'file changed'
           git push origin test
-      - run: gh pr create --title "[Test] Create Pull Request From GitHub Actions" --body "GitHub Actions created." --label "test"
+      - run: |
+          gh pr create \
+            --title "[Test] Create Pull Request From GitHub Actions" \
+            --body "GitHub Actions created." \
+            --label "test" > pr-url.txt
+      - name: print pr url
+        run: cat pr-url.txt
+      - run: gh pr merge $(cat pr-url.txt) --squash
     env:
       GH_TOKEN: ${{ github.token }}
