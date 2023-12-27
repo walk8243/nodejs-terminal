@@ -30,7 +30,7 @@ jobs:
       - run: git switch -c test
       - name: before file
         run: cat src/index.ts
-      - run: sed -i 's/green/yellow/g' src/index.ts
+      - run: sed -i 's/yellow/red/g' src/index.ts
       - name: after file
         run: cat src/index.ts
       - run: |
