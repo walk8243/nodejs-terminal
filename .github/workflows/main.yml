@@ -1,14 +1,20 @@
 name: Repository dispatch receive
 
 on:
-  repository_dispatch:
-    types: [on-demand-test]
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        type: string
+      sha256:
+        required: true
+        type: string
 
 jobs:
   receive-repository-dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Receive
-        run: |
-          env=${{ github.event.client_payload.env }}
-          echo "ENV = $env"
+      - name: print version
+        run: echo ${{ inputs.version }}
+      - name: print sha256
+        run: echo ${{ inputs.sha256 }}
